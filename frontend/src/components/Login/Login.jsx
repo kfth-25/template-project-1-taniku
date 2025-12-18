@@ -2,6 +2,9 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
 import { login as apiLogin, register as apiRegister } from '../../services/authService';
+import googleIcon from '../../assets/google.png';
+import facebookIcon from '../../assets/facebook.png';
+import instagramIcon from '../../assets/instagram.png';
 import './Login.css';
 
 const Login = ({ isOpen, onClose }) => {
@@ -285,19 +288,19 @@ const Login = ({ isOpen, onClose }) => {
                 className="social-login-btn google" 
                 onClick={() => handleSocialLogin('Google')}
               >
-                <img src="/src/assets/google.png" alt="Google" />
+                <img src={googleIcon} alt="Google" />
               </button>
               <button 
                 className="social-login-btn facebook" 
                 onClick={() => handleSocialLogin('Facebook')}
               >
-                <img src="/src/assets/facebook.png" alt="Facebook" />
+                <img src={facebookIcon} alt="Facebook" />
               </button>
               <button 
                 className="social-login-btn instagram" 
                 onClick={() => handleSocialLogin('Instagram')}
               >
-                <img src="/src/assets/instagram.png" alt="Instagram" />
+                <img src={instagramIcon} alt="Instagram" />
               </button>
               <button 
                 className="social-login-btn linkedin" 
