@@ -1,0 +1,531 @@
+/* Header Formal - Warna Ringan untuk Laptop */
+.header {
+  position: sticky;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--header-height, 70px);
+  background: transparent;
+  padding: 0; /* full lebar default */
+  border-bottom: 1px solid transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: 1fr auto; /* area tengah untuk search, kanan untuk actions */
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 0; /* full */
+  gap: 24px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Brand Section */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 280px;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* Search Section */
+.header-search {
+  max-width: 600px;
+  width: 100%;
+  justify-self: center; /* posisikan tepat di tengah header */
+}
+
+.search-form {
+  width: 100%;
+}
+
+.header .search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #ffffff; /* tidak transparan */
+  border: 1px solid #d1d5db; /* abu-abu halus */
+  border-radius: 10px;
+  height: 44px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.header .search-wrapper:focus-within {
+  border-color: #3b82f6; /* biru saat fokus */
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+.header .search-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+}
+
+.header .search-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent; /* wrapper sudah solid */
+  padding: 0 16px 0 44px;
+  font-size: 14px;
+  color: #374151;
+  outline: none;
+}
+
+.header .search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Actions Section */
+.header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 320px;
+}
+
+.header .action-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 44px;
+  white-space: nowrap;
+}
+
+.header .action-btn:hover {
+  background: transparent;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+.header .action-btn.primary {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+  color: #ffffff;
+}
+
+.header .action-btn.primary:hover {
+  background: var(--primary-700);
+  border-color: var(--primary-700);
+}
+
+.header .action-btn.icon-only {
+  padding: 12px;
+  width: 44px;
+  justify-content: center;
+}
+
+.header .btn-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.header .btn-text {
+  font-weight: 500;
+}
+
+/* Notification */
+.header .notification-wrapper {
+  position: relative;
+}
+
+.header .notification-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Sejajarkan ikon notifikasi sedikit lebih ke atas tanpa mempengaruhi ikon lain */
+.header .notification-wrapper .action-btn.icon-only .btn-icon {
+  transform: translateY(-5px);
+}
+
+
+.header .profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: 44px;
+  min-width: 180px;
+}
+
+.header .profile-btn:hover {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.header .user-avatar {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.header .user-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.header .user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header .user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+.header .user-status {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.header .dropdown-arrow {
+  font-size: 12px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+
+.header .profile-btn:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Profile Dropdown */
+.header .profile-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownFadeIn 0.2s ease;
+}
+
+.header .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.header .dropdown-item:hover {
+  background: #f9fafb;
+}
+
+.header .dropdown-item.logout {
+  color: #ef4444;
+}
+
+.header .dropdown-item.logout:hover {
+  background: #fef2f2;
+}
+
+.header .dropdown-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.header .dropdown-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 4px 0;
+}
+
+/* Animations */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design untuk Laptop */
+@media (max-width: 1400px) {
+  .header .header-container {
+    max-width: 100%;
+    padding: 0; /* tetap full tanpa padding */
+  }
+  
+  .header .header-search {
+    max-width: 450px;
+    margin: 0; /* hilangkan margin untuk lebar penuh */
+  }
+}
+
+@media (max-width: 1200px) {
+  .header .header-container {
+    padding: 0; /* tetap full tanpa padding */
+    gap: 20px;
+  }
+  
+  .header .header-search {
+    max-width: 400px;
+    margin: 0; /* hilangkan margin untuk lebar penuh */
+  }
+  
+  .header .brand-title {
+    font-size: 18px;
+  }
+}
+
+/* Responsive Design untuk Laptop */
+@media (min-width: 1920px) {
+  .header .header-container {
+    padding: 0; /* tetap full di layar besar */
+    gap: 48px;
+  }
+  
+  .header .header-brand {
+    min-width: 320px;
+  }
+  
+  .header .header-search {
+    max-width: 800px;
+    margin: 0; /* hilangkan margin untuk lebar penuh */
+  }
+  
+  .header .header-actions {
+    min-width: 400px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .header {
+    padding: 0; /* full lebar pada layar laptop */
+  }
+  .header .header-container {
+    padding: 0; /* hilangkan padding agar benar-benar full */
+    gap: 16px;
+    margin: 0; /* tidak ada margin pembungkus */
+  }
+  
+  .header .header-search {
+    max-width: 450px;
+    margin: 0; /* tanpa margin kiri/kanan agar sejajar penuh */
+  }
+  
+  .header .header-actions {
+    min-width: 280px;
+    gap: 12px;
+  }
+  
+  .header .action-btn {
+    padding: 10px 14px;
+    height: 40px;
+  }
+  
+  .header .profile-btn {
+    height: 40px;
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header .header-container {
+    gap: 16px;
+  }
+  
+  .header .header-search {
+    max-width: 350px;
+  }
+  
+  .header .btn-text {
+    display: none;
+  }
+  
+  .header .action-btn:not(.icon-only) {
+    padding: 10px;
+    width: 40px;
+    justify-content: center;
+  }
+  
+  .header .brand-subtitle {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    left: 0;
+    width: 100%;
+    height: 64px;
+    top: 6px;
+  }
+  
+  .header .header-container {
+    padding: 0 12px;
+    gap: 12px;
+  }
+  
+  .header .brand-title {
+    font-size: 16px;
+  }
+  
+  .header .header-search {
+    max-width: 280px;
+  }
+  
+  .header .search-wrapper {
+    height: 38px;
+  }
+  
+  .header .user-info {
+    display: none;
+  }
+  
+  .header .profile-btn {
+    padding: 8px;
+    width: 42px;
+    justify-content: center;
+  }
+  
+  .header .dropdown-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .header .header-brand {
+    min-width: 140px;
+  }
+  
+  .header .brand-text {
+    display: none;
+  }
+  
+  .header .brand-logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .header .header-search {
+    max-width: 200px;
+  }
+  
+  .header .header-actions {
+    gap: 8px;
+  }
+  
+  .header .action-btn {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+  }
+  
+  .header .btn-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Focus States untuk Accessibility */
+.header .action-btn:focus-visible,
+.header .profile-btn:focus-visible,
+.header .search-input:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Override penyelarasan ikon notifikasi agar tepat di tengah dan sedikit naik */
+.header .notification-wrapper button.action-btn.icon-only {
+  position: relative;
+}
+
+.header .notification-wrapper button.action-btn.icon-only .btn-icon {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -65%); /* sedikit diturunkan agar gap atas berkurang */
+  display: block;
+}

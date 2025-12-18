@@ -1,0 +1,77 @@
+.search-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 40px 0;
+}
+
+.search-title {
+  font-size: 1.8rem;
+  color: #14532d;
+}
+
+.search-subtitle {
+  color: #4b5563;
+  margin-top: 6px;
+}
+
+.search-query {
+  font-weight: 600;
+  color: #065f46;
+}
+
+.search-empty {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px dashed #e5e7eb;
+  border-radius: 10px;
+  color: #6b7280;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.search-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  caret-color: transparent; /* Prevent cursor blinking */
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.search-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.search-card-body {
+  padding: 10px 12px;
+}
+
+.search-card-name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.search-card-cat {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.search-card-price {
+  margin-top: 8px;
+  color: #16a34a;
+  font-weight: 600;
+}

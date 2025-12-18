@@ -1,0 +1,224 @@
+/* Flying Plane Animation Styles */
+.flying-plane-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.flying-plane {
+  position: absolute;
+  bottom: -50px;
+  left: -100px;
+  animation: flyDiagonally var(--flight-duration, 2s) ease-in-out infinite;
+  animation-delay: var(--flight-delay, 0s);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Animasi terbang diagonal dari kiri bawah ke kanan atas */
+@keyframes flyDiagonally {
+  0% {
+    left: -100px;
+    bottom: -50px;
+    transform: rotate(-15deg) scale(0.8);
+    opacity: 0;
+  }
+  
+  10% {
+    opacity: 1;
+    transform: rotate(-12deg) scale(0.9);
+  }
+  
+  25% {
+    left: 25vw;
+    bottom: 25vh;
+    transform: rotate(-10deg) scale(1);
+  }
+  
+  50% {
+    left: 50vw;
+    bottom: 50vh;
+    transform: rotate(-8deg) scale(1.1);
+  }
+  
+  75% {
+    left: 75vw;
+    bottom: 75vh;
+    transform: rotate(-5deg) scale(1);
+  }
+  
+  90% {
+    opacity: 1;
+    transform: rotate(-3deg) scale(0.9);
+  }
+  
+  100% {
+    left: calc(100vw + 100px);
+    bottom: calc(100vh + 50px);
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Animasi propeller berputar */
+.propeller {
+  animation: spin 0.1s linear infinite;
+  transform-origin: 88.5px 50px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animasi jejak awan */
+.cloud-trail {
+  animation: fadeTrail 2s ease-in-out infinite;
+}
+
+@keyframes fadeTrail {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+/* Efek sparkle */
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #FFD700, transparent);
+  border-radius: 50%;
+  animation: sparkleAnimation 1.5s ease-in-out infinite;
+}
+
+.sparkle-1 {
+  top: -10px;
+  left: 10px;
+  animation-delay: 0s;
+}
+
+.sparkle-2 {
+  top: 5px;
+  left: -5px;
+  animation-delay: 0.5s;
+}
+
+.sparkle-3 {
+  top: -5px;
+  left: 15px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkleAnimation {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Variasi untuk pesawat yang berbeda */
+.flying-plane-container.variant-1 .flying-plane {
+  animation-duration: 6s;
+}
+
+.flying-plane-container.variant-2 .flying-plane {
+  animation-duration: 10s;
+}
+
+.flying-plane-container.variant-3 .flying-plane {
+  animation-duration: 12s;
+}
+
+/* Plane variants for different diagonal paths */
+.flying-plane.variant-1 {
+  bottom: -30px;
+  animation-delay: var(--flight-delay, 0s);
+}
+
+.flying-plane.variant-2 {
+  bottom: -60px;
+  animation-delay: var(--flight-delay, 0s);
+}
+
+.flying-plane.variant-3 {
+  bottom: -40px;
+  animation-delay: var(--flight-delay, 0s);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flying-plane {
+    font-size: 0.7em;
+    animation-duration: 2.5s;
+  }
+  
+  .flying-plane.variant-1 {
+    bottom: -15px;
+  }
+
+  .flying-plane.variant-2 {
+    bottom: -35px;
+  }
+
+  .flying-plane.variant-3 {
+    bottom: -25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flying-plane {
+    font-size: 0.6em;
+    animation-duration: 3s;
+  }
+  
+  .flying-plane.variant-1 {
+    bottom: -10px;
+  }
+
+  .flying-plane.variant-2 {
+    bottom: -25px;
+  }
+
+  .flying-plane.variant-3 {
+    bottom: -18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .flying-plane {
+    font-size: 1.1em;
+  }
+}
+
+/* Efek hover untuk interaksi (opsional) */
+.flying-plane-container:hover .flying-plane {
+  animation-play-state: paused;
+}
+
+/* Mode reduced motion untuk aksesibilitas */
+@media (prefers-reduced-motion: reduce) {
+  .flying-plane,
+  .flying-plane .propeller,
+  .flying-plane .cloud,
+  .flying-plane .sparkle {
+    animation: none;
+  }
+}

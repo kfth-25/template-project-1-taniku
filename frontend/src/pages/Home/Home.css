@@ -1,0 +1,109 @@
+/* Home Container Styles */
+.home-container {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Home Header Section */
+.home-header {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInFromTop 1s ease-out 0.2s forwards;
+}
+
+/* Home Products Section */
+.home-products {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInFromBottom 1s ease-out 0.4s forwards;
+}
+
+/* Keyframe Animations */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scroll behavior */
+.home-container {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced transitions for child elements */
+.home-header > *,
+.home-products > * {
+  transition: all 0.3s ease;
+}
+
+/* Hover effects for interactive elements */
+.home-container .header-contents {
+  transition: transform 0.3s ease;
+}
+
+.home-container .header-contents:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive animations */
+@media (max-width: 768px) {
+  .home-container {
+    transform: translateY(20px);
+  }
+  
+  .home-header {
+    animation: slideInFromTop 0.8s ease-out 0.1s forwards;
+  }
+  
+  .home-products {
+    animation: slideInFromBottom 0.8s ease-out 0.3s forwards;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    transform: translateY(15px);
+  }
+  
+  .home-header {
+    animation: slideInFromTop 0.6s ease-out 0.1s forwards;
+  }
+  
+  .home-products {
+    animation: slideInFromBottom 0.6s ease-out 0.2s forwards;
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .home-container,
+  .home-header,
+  .home-products {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

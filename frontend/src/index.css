@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit;
+}
+
+/* Prevent cursor blinking on non-input elements */
+div, span, p, h1, h2, h3, h4, h5, h6, a, button {
+  caret-color: transparent;
+}
+
+/* Allow cursor only on input elements */
+input, textarea, [contenteditable="true"] {
+  caret-color: auto;
+}
+body{
+  min-height: 100vh;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.app{
+   max-width: 1200px; /* batas lebar maksimal */
+  margin: 0 auto;     /* biar kontennya di tengah */
+  padding: 140px 16px 0 16px; /* Added top padding for taller navbar */
+}
+.app.no-navbar{
+  padding: 16px 16px 0 16px;
+}
+.app.app-full{
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

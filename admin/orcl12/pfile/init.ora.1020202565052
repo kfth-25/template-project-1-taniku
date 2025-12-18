@@ -1,0 +1,75 @@
+##############################################################################
+# Copyright (c) 1991, 2013 by Oracle Corporation
+##############################################################################
+ 
+###########################################
+# Cache and I/O
+###########################################
+db_block_size=8192
+ 
+###########################################
+# Cursors and Library Cache
+###########################################
+open_cursors=300
+ 
+###########################################
+# Database Identification
+###########################################
+db_name="orcl12"
+ 
+###########################################
+# File Configuration
+###########################################
+control_files=("C:\Users\Pongo\Downloads\oradata\ORCL12\control01.ctl", "C:\Users\Pongo\Downloads\oradata\ORCL12\control02.ctl")
+ 
+###########################################
+# Miscellaneous
+###########################################
+compatible=21.0.0
+diagnostic_dest=C:\Users\Pongo\Downloads
+enable_pluggable_database=true
+ 
+###########################################
+# NLS
+###########################################
+nls_language="AMERICAN"
+nls_territory="AMERICA"
+ 
+###########################################
+# Network Registration
+###########################################
+local_listener=LISTENER_ORCL12
+ 
+###########################################
+# Processes and Sessions
+###########################################
+processes=1280
+ 
+###########################################
+# SGA Memory
+###########################################
+sga_target=4821m
+ 
+###########################################
+# Security and Auditing
+###########################################
+audit_file_dest="C:\Users\Pongo\Downloads\admin\orcl12\adump"
+audit_trail=db
+remote_login_passwordfile=EXCLUSIVE
+ 
+###########################################
+# Shared Server
+###########################################
+dispatchers="(PROTOCOL=TCP) (SERVICE=orcl12XDB)"
+ 
+###########################################
+# Sort, Hash Joins, Bitmap Indexes
+###########################################
+pga_aggregate_target=1608m
+ 
+###########################################
+# System Managed Undo and Rollback Segments
+###########################################
+undo_tablespace=UNDOTBS1
+ 
+ 

@@ -1,0 +1,418 @@
+.rating-breakdown {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.rating-breakdown:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.rating-breakdown.compact {
+  padding: 16px;
+  border-radius: 12px;
+}
+
+/* No ratings state */
+.no-ratings {
+  text-align: center;
+  padding: 32px 16px;
+  color: #6b7280;
+}
+
+.no-ratings-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.no-ratings h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.no-ratings p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Rating summary */
+.rating-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.compact .rating-summary {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+}
+
+.average-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rating-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.compact .rating-number {
+  font-size: 2rem;
+}
+
+.rating-stars-display {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.total-reviews {
+  text-align: right;
+}
+
+.review-count {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1;
+}
+
+.compact .review-count {
+  font-size: 1.25rem;
+}
+
+.review-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-transform: lowercase;
+}
+
+/* Rating distribution */
+.rating-distribution {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.compact .rating-distribution {
+  gap: 8px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s ease;
+}
+
+.rating-row:hover {
+  transform: translateX(4px);
+}
+
+.rating-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 40px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.star-count {
+  font-weight: 600;
+}
+
+.star-icon {
+  width: 14px;
+  height: 14px;
+  color: #fbbf24;
+}
+
+.progress-container {
+  flex: 1;
+  height: 8px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.compact .progress-container {
+  height: 6px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+  border-radius: 4px;
+  transition: width 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.rating-stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 80px;
+  justify-content: flex-end;
+  font-size: 0.75rem;
+}
+
+.compact .rating-stats {
+  min-width: 60px;
+}
+
+.percentage {
+  font-weight: 600;
+  color: #374151;
+}
+
+.count {
+  color: #6b7280;
+}
+
+/* Rating insights */
+.rating-insights {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.insight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.insight-label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.insight-value {
+  font-weight: 600;
+  color: #374151;
+}
+
+.insight-value.positive {
+  color: #059669;
+}
+
+.insight-value.neutral {
+  color: #d97706;
+}
+
+.insight-value.negative {
+  color: #dc2626;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .rating-breakdown {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .rating-breakdown.compact {
+    padding: 12px;
+  }
+  
+  .rating-summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
+  }
+  
+  .total-reviews {
+    text-align: left;
+  }
+  
+  .average-rating {
+    gap: 8px;
+  }
+  
+  .rating-number {
+    font-size: 2rem;
+  }
+  
+  .compact .rating-number {
+    font-size: 1.75rem;
+  }
+  
+  .rating-row {
+    gap: 8px;
+  }
+  
+  .rating-stats {
+    min-width: 70px;
+  }
+  
+  .compact .rating-stats {
+    min-width: 50px;
+  }
+  
+  .rating-insights {
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+  
+  .insight-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rating-breakdown {
+    padding: 16px;
+  }
+  
+  .rating-breakdown.compact {
+    padding: 10px;
+  }
+  
+  .rating-number {
+    font-size: 1.75rem;
+  }
+  
+  .compact .rating-number {
+    font-size: 1.5rem;
+  }
+  
+  .review-count {
+    font-size: 1.25rem;
+  }
+  
+  .compact .review-count {
+    font-size: 1.125rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .rating-breakdown {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+  
+  .rating-summary {
+    border-bottom-color: #374151;
+  }
+  
+  .rating-number {
+    color: #f9fafb;
+  }
+  
+  .review-count {
+    color: #d1d5db;
+  }
+  
+  .review-text {
+    color: #9ca3af;
+  }
+  
+  .rating-label {
+    color: #d1d5db;
+  }
+  
+  .progress-container {
+    background: #374151;
+  }
+  
+  .percentage {
+    color: #d1d5db;
+  }
+  
+  .count {
+    color: #9ca3af;
+  }
+  
+  .rating-insights {
+    border-top-color: #374151;
+  }
+  
+  .insight-label {
+    color: #9ca3af;
+  }
+  
+  .insight-value {
+    color: #d1d5db;
+  }
+  
+  .no-ratings h3 {
+    color: #d1d5db;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .rating-breakdown {
+    border: 2px solid #374151;
+  }
+  
+  .progress-fill {
+    background: #1d4ed8;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rating-breakdown,
+  .rating-row,
+  .progress-fill {
+    transition: none;
+  }
+  
+  .rating-row:hover {
+    transform: none;
+  }
+  
+  .progress-fill::after {
+    animation: none;
+  }
+}

@@ -1,0 +1,590 @@
+/* Add Product Page Styles */
+.add-product-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 0;
+}
+
+/* Page Header */
+.add-product-page .page-header {
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
+}
+
+.add-product-page .header-content {
+  max-width: 1400px;
+  margin: 0 auto; /* konsisten dengan konten halaman, tidak terlalu ke tengah */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem; /* kurangi jarak keseluruhan agar lebih rapi */
+}
+
+.add-product-page .header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* sedikit lebih rapat */
+  min-width: 0; /* memungkinkan teks menyingkat dengan ellipsis */
+  /* buat teks berada di kiri, ikon di sebelah kanan */
+}
+
+/* Pastikan urutan: teks dulu, lalu ikon */
+.add-product-page .header-left .header-icon {
+  order: 1;
+}
+
+.add-product-page .header-left .header-text {
+  order: 2;
+}
+
+.add-product-page .header-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+}
+
+.add-product-page .header-icon img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+.add-product-page .header-text h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.add-product-page .header-text p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 6px;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 640px;
+}
+
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* jarak antar tombol lebih rapat */
+}
+
+/* Page Content */
+.page-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Form Cards */
+.form-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.form-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.card-title h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.25rem 0;
+}
+
+.card-title p {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Form Elements */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  background: white;
+  color: #374151;
+}
+
+/* Edit mode: tampilkan teks dalam input lebih redup (abu-abu) agar tidak terlalu mencolok */
+.add-product-page.edit-mode .form-group input,
+.add-product-page.edit-mode .form-group select,
+.add-product-page.edit-mode .form-group textarea {
+  color: #64748b !important;
+}
+
+.add-product-page.edit-mode .form-group input:focus,
+.add-product-page.edit-mode .form-group select:focus,
+.add-product-page.edit-mode .form-group textarea:focus {
+  color: #64748b !important;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.error-text {
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* Input with Prefix */
+.input-with-prefix {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-prefix .prefix {
+  position: absolute;
+  left: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  z-index: 1;
+  width: 2.2rem;
+}
+
+.input-with-prefix input {
+  padding-left: 4rem;
+}
+
+/* Variant: prefix di luar input, kiri */
+.input-with-prefix.outside {
+  position: static;
+  gap: 0.5rem;
+}
+.input-with-prefix.outside .prefix-outside {
+  position: static;
+  left: auto;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b7280;
+  min-width: 2.2rem;
+  text-align: left;
+}
+.input-with-prefix.outside input {
+  padding-left: 1rem;
+}
+
+.add-product-page.edit-mode .input-with-prefix input {
+  color: #64748b !important;
+}
+
+.add-product-page.edit-mode .input-with-prefix input:focus {
+  color: #64748b !important;
+}
+
+/* Image Upload */
+.image-upload-area {
+  position: relative;
+}
+
+.image-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.image-upload-label {
+  display: block;
+  cursor: pointer;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+}
+
+.image-upload-label:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.upload-icon {
+  opacity: 0.6;
+}
+
+.upload-icon img {
+  width: 64px;
+  height: 64px;
+}
+
+.upload-text strong {
+  font-size: 1rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.upload-text p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0.25rem 0 0 0;
+}
+
+.upload-info {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  background: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.image-preview {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-preview:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-overlay span {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.form-actions .btn.btn-secondary img[src*="read_icon"] {
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary img {
+  filter: brightness(0) invert(1);
+}
+
+.btn-secondary {
+  background: white;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.btn-secondary img {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(8%) saturate(1064%) hue-rotate(202deg) brightness(95%) contrast(89%);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-content {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 1rem;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .page-content {
+    padding: 1rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card-header {
+    padding: 1rem;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-text h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .header-icon img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .upload-placeholder {
+    padding: 1rem;
+  }
+  
+  .upload-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-card {
+  animation: slideIn 0.6s ease-out;
+}
+
+.form-card:nth-child(1) { animation-delay: 0.1s; }
+.form-card:nth-child(2) { animation-delay: 0.2s; }
+.form-card:nth-child(3) { animation-delay: 0.3s; }
+.form-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Focus States */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  transform: translateY(-1px);
+}
+
+/* Loading State */
+.btn:disabled {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

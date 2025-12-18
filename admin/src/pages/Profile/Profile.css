@@ -1,0 +1,5 @@
+.profile-page { padding: 16px; }
+.profile-card { max-width: 640px; margin: 0 auto; background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 16px; }
+.profile-header { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; }
+.profile-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: contain; }
+.profile-actions { display: flex; justify-content: flex-end; padding-top: 12px; }

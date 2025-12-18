@@ -1,0 +1,53 @@
+.tracking-page { padding: var(--space-6); }
+.tracking-page { color:#0f172a; }
+.tracking-header { display:flex; align-items:center; gap:var(--space-3); margin-bottom: var(--space-5); }
+.tracking-header .icon img { width:36px; height:36px; object-fit:contain; }
+.tracking-header h1 { margin:0; font-size:1.6rem; font-weight:600; }
+.tracking-header .subtitle { color: #334155; margin:0; }
+
+.tracking-nav { display:flex; gap: var(--space-3); }
+
+.tracking-controls { display:grid; grid-template-columns: 1.2fr 200px 200px auto; gap: var(--space-3); padding: var(--space-4); margin-bottom: var(--space-4); background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius-lg); }
+.tracking-controls input, .tracking-controls select { padding: 12px; border:1px solid var(--border-medium); border-radius: var(--radius-md); background: #fff; color: #0f172a; }
+.tracking-controls input:focus, .tracking-controls select:focus { outline: 2px solid rgba(37,99,235,0.15); border-color: var(--primary-600); }
+.tracking-controls input::placeholder { color: var(--text-tertiary); }
+.tracking-controls .btn { padding: 12px 16px; border-radius: var(--radius-md); background: var(--primary-600); color: #ffffff; }
+
+/* Normalisasi warna teks tombol di halaman Tracking agar selalu terbaca */
+.tracking-page .btn { color: #0f172a; font-weight:600; }
+.tracking-page .btn-primary { background: var(--primary-600); color: #0f172a; border: 1px solid var(--primary-600); }
+.tracking-page .btn-secondary { background: #ffffff; color: #0f172a; border: 1px solid var(--border-medium); }
+.tracking-page .btn-outline { background: transparent; border: 1px solid var(--border-medium); color: var(--text-primary); }
+.tracking-page .btn:hover { filter: brightness(0.98); }
+.tracking-page .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.tracking-content { display:grid; grid-template-columns: 1.6fr 1fr; gap: var(--space-3); }
+.tracking-table { width:100%; border-collapse: collapse; }
+.tracking-table thead th { background: #f8fafc; color: var(--text-secondary); text-align:left; font-weight:600; padding:12px; border-bottom: 1px solid var(--border-light); }
+.tracking-table tbody td { padding:12px; border-bottom: 1px solid var(--border-light); vertical-align: middle; color:#0f172a; }
+.tracking-table tbody tr.active { background: #f0f9ff; }
+
+.tracking-map { padding: 0; height: 360px; border-radius: var(--radius-lg); overflow: hidden; background:#fff; border:1px solid var(--border-light); }
+
+.progress { display:flex; flex-direction: column; gap: var(--space-3); }
+.progress-header { display:flex; align-items:center; gap: var(--space-3); padding: var(--space-4); border-bottom: 1px solid var(--border-light); }
+.progress-header img { width: 24px; height: 24px; filter:none; }
+.progress-steps { display:flex; align-items:center; gap: var(--space-4); padding: var(--space-4); }
+.step { display:flex; align-items:center; gap: var(--space-2); color: var(--text-secondary); }
+.step .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--border-light); background: #fff; }
+.step.done { color: var(--primary-700); }
+.step.done .dot { background: var(--primary-600); border-color: var(--primary-600); }
+
+.progress .link-button { display:inline-block; padding:8px 12px; border-radius: var(--radius-md); border:1px solid var(--border-medium); color: var(--primary-700); background:#fff; text-decoration:none; }
+.progress .link-button:hover { filter: brightness(0.98); }
+
+.map-card { padding: var(--space-4); margin-top: var(--space-4); }
+.map-input-group { display:flex; gap: var(--space-3); align-items:center; }
+.map-input-group .map-url { flex: 1; }
+.map-input-group .map-url { padding: 12px; border:1px solid var(--border-medium); border-radius: var(--radius-md); background:#fff; color:#0f172a; }
+.map-input-group .map-url:focus { outline: 2px solid rgba(37,99,235,0.15); border-color: var(--primary-600); }
+
+@media (max-width: 1024px) {
+  .tracking-controls { grid-template-columns: 1fr 1fr; }
+  .tracking-content { grid-template-columns: 1fr; }
+}

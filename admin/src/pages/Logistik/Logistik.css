@@ -1,0 +1,102 @@
+/* Layout dasar (Logistik) */
+.logistik-page { display: flex; flex-direction: column; gap: 16px; padding: 16px; }
+.card { background: #fff; border: 1px solid #d0d7de; border-radius: 12px; padding: 12px; }
+
+/* Header */
+.logistik-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.25);
+}
+.title-group { display: flex; align-items: center; gap: 12px; }
+.title-icon { width: 32px; height: 32px; }
+.header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; border: 1px solid #d0d7de; background: #fff; cursor: pointer; }
+.btn img { width: 16px; height: 16px; }
+.btn.primary { background: #0ea5e9; color: #fff; border-color: #0ea5e9; }
+.btn.outline { background: #fff; color: #0e7490; border-color: #0e7490; }
+.btn.ghost { background: transparent; color: #0e7490; border-color: transparent; }
+.btn.danger { background: #ef4444; color: #fff; border-color: #ef4444; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Summary */
+.summary { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.summary .card { display: flex; align-items: center; gap: 12px; }
+.summary .card img { width: 24px; height: 24px; }
+.summary .label { font-size: 12px; color: #64748b; }
+.summary strong { font-size: 16px; }
+
+/* Controls */
+.controls { display: grid; grid-template-columns: 1fr auto auto auto; gap: 8px; align-items: center; }
+.search-input { display: flex; align-items: center; gap: 8px; border: 1px solid #d0d7de; border-radius: 8px; padding: 8px 12px; background: #fff; }
+.search-input img { width: 16px; height: 16px; }
+.search-input input { width: 100%; border: none; outline: none; background: #fff; color: #111827; }
+.controls .filters { display: inline-flex; gap: 8px; }
+.controls select { padding: 8px 12px; border: 1px solid #d0d7de; border-radius: 8px; background: #fff; color: #111827; }
+.controls .sort { display: inline-flex; gap: 8px; }
+.controls .btn.sort { min-width: 72px; }
+.controls .date-range { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px dashed #d0d7de; border-radius: 8px; }
+.controls .date-range img { width: 16px; height: 16px; object-fit: contain; }
+.controls .date-range input { padding: 4px 6px; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; color: #111827; }
+
+/* Bulk actions */
+.bulk-actions { display: flex; gap: 8px; align-items: center; }
+.bulk-count { color: #475569; }
+
+/* Table */
+.table-wrap { overflow: auto; }
+.logistik-table { width: 100%; border-collapse: collapse; }
+.logistik-table thead th { position: sticky; top: 0; background: #f8fafc; z-index: 1; text-align: left; font-weight: 600; padding: 8px; border-bottom: 1px solid #e2e8f0; }
+.logistik-table tbody td { padding: 8px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+.logistik-table tr.active { background: #f0f9ff; }
+.cell-main { display: flex; flex-direction: column; }
+.cell-main small { color: #64748b; }
+ .logistik-table select { padding: 6px 10px; border: 1px solid #d0d7de; border-radius: 8px; background: #fff; color: #111827; }
+ .logistik-table select:focus { outline: 2px solid #0ea5e9; }
+ .logistik-table input[type="checkbox"] { width: 14px; height: 14px; accent-color: #0ea5e9; background: #fff; border: 1px solid #d0d7de; border-radius: 4px; }
+
+/* Badge status */
+.badge { display: inline-flex; align-items: center; padding: 4px 8px; border-radius: 999px; font-size: 12px; }
+.badge.menunggu { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+.badge.diproses { background: #f0f9ff; color: #075985; border: 1px solid #bae6fd; }
+.badge.dikirim { background: #ecfeff; color: #065f46; border: 1px solid #a7f3d0; }
+.badge.selesai { background: #f0fdf4; color: #14532d; border: 1px solid #86efac; }
+
+/* Row actions */
+.row-actions { display: inline-flex; gap: 6px; }
+.row-actions .btn img { width: 14px; height: 14px; }
+
+/* Footer table */
+.table-footer { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px; }
+.pagination { display: inline-flex; align-items: center; gap: 8px; }
+.per-page select { padding: 6px 10px; border: 1px solid #d0d7de; border-radius: 8px; background: #fff; }
+
+/* Detail panel */
+.detail-panel { position: fixed; right: 16px; top: 80px; width: 320px; max-width: calc(100% - 32px); background: #fff; border: 1px solid #d0d7de; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.06); padding: 12px; transform: translateX(120%); transition: transform 200ms ease; }
+.detail-panel.open { transform: translateX(0%); }
+.detail-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.detail-body { display: grid; gap: 8px; }
+.detail-row { display: grid; grid-template-columns: 100px 1fr; gap: 8px; }
+.detail-row .label { color: #64748b; }
+.detail-empty { color: #64748b; }
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.25); display: flex; align-items: center; justify-content: center; }
+.modal { width: 640px; max-width: calc(100% - 32px); background: #fff; border: 1px solid #d0d7de; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #e5e7eb; }
+.modal-body { padding: 12px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.modal-footer { display: flex; justify-content: flex-end; gap: 8px; padding: 12px; border-top: 1px solid #e5e7eb; }
+ .modal-body input,
+ .modal-body select { width: 100%; padding: 8px 10px; border: 1px solid #d0d7de; border-radius: 8px; background: #fff; color: #111827; }
+ .modal-body input::placeholder { color: #94a3b8; }
+ .modal-body select:focus,
+ .modal-body input:focus { outline: 2px solid #0ea5e9; }

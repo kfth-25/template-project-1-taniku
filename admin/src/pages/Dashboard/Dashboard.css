@@ -1,0 +1,227 @@
+/* Dashboard charts layout fixes */
+.chart-card {
+  /* Override global .card overflow to avoid chart cropping */
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card .card-header {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.chart-card .chart-wrapper {
+  position: relative;
+  flex: 1;
+  min-height: 360px;
+  /* Beri ruang ekstra di bawah untuk label sumbu X/legend */
+  padding-bottom: 96px;
+}
+
+.chart-card .chart-wrapper canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fullscreen chart card */
+.chart-card.fullscreen {
+  position: fixed;
+  inset: 12px;
+  z-index: 999;
+  width: calc(100vw - 24px);
+  height: calc(100vh - 24px);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.chart-card.fullscreen .chart-wrapper {
+  min-height: calc(100vh - 120px);
+  padding-bottom: 120px;
+}
+
+/* Kartu besar (mis. Orders) perlu ruang ekstra */
+.chart-card.large .chart-wrapper {
+  min-height: 420px;
+  padding-bottom: 112px;
+}
+
+/* Compact density: increase heights so semua konten terlihat */
+.density-compact .chart-card { min-height: 380px; }
+.density-compact .chart-card.large { min-height: 440px; }
+
+/* Ensure grid rows have consistent gap */
+.analytics-section .row { gap: 12px; }
+
+/* KPI summary grid */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.kpi-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-radius: 8px 0 0 8px;
+}
+.kpi-card .kpi-icon {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) saturate(100%) invert(40%) sepia(72%) saturate(380%) hue-rotate(98deg) brightness(90%) contrast(90%);
+}
+.kpi-card .kpi-content h4 {
+  margin: 0;
+  font-size: 13px;
+  color: #374151;
+}
+.kpi-card .kpi-content .kpi-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #166534;
+}
+.kpi-card:hover {
+  border-color: #bbf7d0;
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Quick actions */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.quick-actions .action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+  background: #fff;
+  color: #111827;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.quick-actions .action-btn:hover {
+  border-color: var(--primary-600, #2563eb);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.12);
+  transform: translateY(-1px);
+}
+.quick-actions .action-btn img {
+  width: 16px; height: 16px;
+  filter: none; /* tampilkan warna asli ikon */
+}
+@media (max-width: 768px) {
+  .quick-actions { grid-template-columns: 1fr; }
+}
+
+/* --- Modern accents & components --- */
+/* Color accent on chart cards */
+.chart-card {
+  border-left: 4px solid var(--primary-600, #2563eb);
+}
+.chart-card .card-header {
+  background: linear-gradient(180deg, var(--primary-50, #eff6ff), transparent);
+}
+.chart-card.fullscreen { border-left: none; }
+
+/* Modern search input styling */
+.search-input {
+  padding: 6px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-input::placeholder { color: #6b7280; }
+.search-input:focus {
+  border-color: var(--primary-600, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Modern table styling for widgets */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+.table thead th {
+  background: var(--primary-50, #eff6ff);
+  color: #0f172a;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 8px;
+}
+.table tbody td { padding: 8px; }
+.table tbody tr { border-bottom: 1px solid #f3f4f6; }
+.table tbody tr:hover { background: #f9fafb; }
+.table tbody tr:nth-child(even) { background: #fcfcfd; }
+
+/* Soft button for widget headers */
+.btn-soft {
+  background: var(--primary-50, #eff6ff);
+  color: var(--primary-700, #0369a1);
+  border: 1px solid var(--border-medium, #cbd5e1);
+}
+.btn-soft:hover {
+  background: var(--primary-100, #dbeafe);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Badge status */
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-warning { background: #fef3c7; color: #92400e; }
+.badge-info { background: #dbeafe; color: #1e40af; }
+.badge-success { background: #d1fae5; color: #065f46; }
+.badge-neutral { background: #f3f4f6; color: #374151; }
+
+/* Modern list for Top Products */
+.list-modern { list-style: none; margin: 0; padding: 0; }
+.list-modern li { display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid #f3f4f6; }
+.list-modern li:hover { background: #f9fafb; }
+
+/* Typography compact for Dashboard */
+.dashboard-header h1 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.dashboard-header .header-icon {
+  width: 22px !important;
+  height: 22px !important;
+}
+.card .card-header h3 {
+  font-size: 1.05rem;
+}
+.dashboard .btn {
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8rem;
+}

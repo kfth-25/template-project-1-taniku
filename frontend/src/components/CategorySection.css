@@ -1,0 +1,123 @@
+.category-section {
+  background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+  padding: 3rem 0;
+  border-bottom: 1px solid #e0f0e0;
+}
+
+.category-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.category-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin: 0 0 0.8rem 0;
+  text-shadow: 0 2px 4px rgba(46, 125, 50, 0.1);
+}
+
+.category-subtitle {
+  color: #4a6741;
+  font-size: 1.1rem;
+  margin: 0 0 2.5rem 0;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-btn {
+  background: white;
+  color: #2e7d32;
+  padding: 1rem 2rem;
+  border: 2px solid #81c784;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(129, 199, 132, 0.2);
+}
+
+.category-icon {
+  font-size: 1.2rem;
+}
+
+.category-btn:hover {
+  border-color: #4caf50;
+  color: #1b5e20;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+  color: white;
+  border-color: #388e3c;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  transform: translateY(-2px);
+}
+
+.category-btn.active .category-icon {
+  filter: brightness(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-section {
+    padding: 2rem 0;
+  }
+  
+  .category-content {
+    padding: 0 1rem;
+  }
+  
+  .category-title {
+    font-size: 1.8rem;
+  }
+  
+  .category-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .category-buttons {
+    gap: 1rem;
+  }
+  
+  .category-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .category-btn {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+  
+  .category-title {
+    font-size: 1.6rem;
+  }
+}

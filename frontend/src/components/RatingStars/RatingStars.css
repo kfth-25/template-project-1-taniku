@@ -1,0 +1,243 @@
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.stars-container {
+  display: flex;
+  gap: 2px;
+}
+
+.star-wrapper {
+  position: relative;
+  cursor: default;
+  transition: transform 0.2s ease;
+}
+
+.interactive .star-wrapper {
+  cursor: pointer;
+  caret-color: transparent; /* Prevent cursor blinking */
+}
+
+.interactive .star-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.star-background,
+.star-fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-background {
+  color: #e5e7eb;
+  transition: color 0.3s ease;
+}
+
+.star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  color: #fbbf24;
+  transition: width 0.3s ease, color 0.3s ease;
+}
+
+.interactive .star-wrapper:hover .star-fill {
+  color: #f59e0b;
+}
+
+/* Visual feedback for rating submission */
+.rating-submitted {
+  animation: ratingPulse 0.6s ease-out;
+}
+
+@keyframes ratingPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.rating-feedback {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4ade80;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.rating-feedback.show {
+  opacity: 1;
+  animation: feedbackSlide 2s ease-out forwards;
+}
+
+@keyframes feedbackSlide {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.star-background svg,
+.star-fill svg {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.3s ease;
+}
+
+.interactive .star-wrapper:hover .star-fill svg {
+  filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.4));
+}
+
+/* Size variants */
+.stars-small .star-wrapper {
+  width: 16px;
+  height: 16px;
+}
+
+.stars-medium .star-wrapper {
+  width: 20px;
+  height: 20px;
+}
+
+.stars-large .star-wrapper {
+  width: 24px;
+  height: 24px;
+}
+
+.stars-xlarge .star-wrapper {
+  width: 32px;
+  height: 32px;
+}
+
+/* Rating value display */
+.rating-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-left: 4px;
+  transition: color 0.3s ease;
+}
+
+.stars-small .rating-value {
+  font-size: 0.75rem;
+}
+
+.stars-large .rating-value {
+  font-size: 1rem;
+}
+
+.stars-xlarge .rating-value {
+  font-size: 1.125rem;
+}
+
+/* Interactive states */
+.interactive:hover .rating-value {
+  color: #111827;
+}
+
+/* Animation for rating changes */
+@keyframes starPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.interactive .star-wrapper.just-rated {
+  animation: starPulse 0.4s ease-out;
+}
+
+/* Accessibility */
+.interactive .star-wrapper:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.interactive .star-wrapper:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .star-background {
+    color: #4b5563;
+  }
+  
+  .rating-value {
+    color: #d1d5db;
+  }
+  
+  .interactive:hover .rating-value {
+    color: #f9fafb;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stars-container {
+    gap: 1px;
+  }
+  
+  .rating-stars {
+    gap: 6px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .star-background {
+    color: #6b7280;
+  }
+  
+  .star-fill {
+    color: #d97706;
+  }
+  
+  .interactive .star-wrapper:hover .star-fill {
+    color: #92400e;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .star-wrapper,
+  .star-background,
+  .star-fill,
+  .star-background svg,
+  .star-fill svg,
+  .rating-value {
+    transition: none;
+  }
+  
+  .interactive .star-wrapper:hover {
+    transform: none;
+  }
+  
+  @keyframes starPulse {
+    0%, 100% { transform: scale(1); }
+  }
+}

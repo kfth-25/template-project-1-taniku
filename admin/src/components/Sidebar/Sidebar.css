@@ -1,0 +1,346 @@
+/* Modern Professional Sidebar */
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+/* Brand Header */
+.sidebar-header {
+  /* Header minimal: hanya logo besar, tanpa dekorasi */
+  padding: var(--space-8);
+  border-bottom: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+
+.brand-icon {
+  /* Tampilkan logo besar tanpa frame */
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tampilkan logo.png dengan ukuran pas di dalam brand-icon */
+.brand-icon .brand-logo-img {
+  /* Skala logo besar */
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  filter: none;
+}
+
+/* Tampilkan hanya ikon pada header brand */
+.brand-text { display: none; }
+
+/* Navigation */
+.sidebar-nav {
+  flex: 1;
+  padding: var(--space-6) 0;
+  overflow-y: auto;
+}
+
+.nav-section {
+  margin-bottom: var(--space-8);
+}
+
+.nav-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 var(--space-4) var(--space-6);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-bottom: var(--space-1);
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  min-height: 56px;
+  box-sizing: border-box;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  border-radius: 0;
+  margin: 0 var(--space-3);
+  border-radius: var(--radius-lg);
+}
+
+.sidebar .nav-link { flex-direction: row; justify-content: flex-start; }
+.sidebar .nav-icon { margin-right: var(--space-3); }
+.sidebar .nav-content { text-align: left; }
+
+.nav-link:hover {
+  background: var(--gray-50);
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  /* Ubah warna tombol aktif menjadi hijau */
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-link.active:hover {
+  transform: translateX(0);
+  /* Sedikit lebih gelap saat hover untuk feedback */
+  background: linear-gradient(135deg, #1B5E20 0%, #164B16 100%);
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(45%) sepia(8%) saturate(1037%) hue-rotate(202deg) brightness(95%) contrast(87%);
+  transition: filter 0.2s ease;
+}
+
+.nav-link:hover .nav-icon img {
+  filter: brightness(0) saturate(100%) invert(13%) sepia(15%) saturate(1618%) hue-rotate(202deg) brightness(97%) contrast(90%);
+}
+
+.nav-link.active .nav-icon img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(109deg) brightness(105%) contrast(105%);
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+  /* Allow flex child to shrink so ellipsis works */
+  min-width: 0;
+}
+
+.nav-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-description {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-link.active .nav-description {
+  opacity: 0.9;
+}
+
+/* Shipping specific: keep icon original and prevent text wrapping */
+.nav-link.shipping .nav-icon img,
+.nav-link.shipping.active .nav-icon img {
+  filter: none;
+}
+
+.nav-link.shipping .nav-label,
+.nav-link.shipping .nav-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tracking specific: use maps icon original, prevent wrapping, keep size */
+.nav-link.tracking .nav-icon img,
+.nav-link.tracking.active .nav-icon img {
+  filter: none;
+}
+
+.nav-link.tracking .nav-label,
+.nav-link.tracking .nav-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Promotions specific: revert height to original (no min-height) */
+.nav-link.promotions {
+  min-height: 0;
+}
+
+/* Messages specific: revert height to original (no min-height) */
+.nav-link.messages {
+  min-height: 0;
+}
+
+/* Dashboard specific: revert height to original (no min-height) */
+.nav-link.dashboard {
+  min-height: 0;
+}
+
+/* User Profile Footer */
+.sidebar-footer {
+  padding: var(--space-6);
+  border-top: 1px solid var(--border-light);
+  background: var(--gray-50);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.user-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  line-height: 1.2;
+}
+
+.user-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 2px var(--bg-primary);
+}
+
+.status-indicator.online {
+  background: var(--success);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 260px;
+  }
+  
+  .brand-text h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar Styling for Sidebar */
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 2px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
