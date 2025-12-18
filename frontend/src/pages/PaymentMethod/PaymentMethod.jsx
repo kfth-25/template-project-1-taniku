@@ -131,8 +131,11 @@ const PaymentMethod = () => {
   useEffect(() => {
     const key = import.meta.env.VITE_MIDTRANS_CLIENT_KEY
     if (!key) return
+    const isProduction = !key.includes('SB-')
     const s = document.createElement('script')
-    s.src = 'https://app.sandbox.midtrans.com/snap/snap.js'
+    s.src = isProduction 
+      ? 'https://app.midtrans.com/snap/snap.js'
+      : 'https://app.sandbox.midtrans.com/snap/snap.js'
     s.setAttribute('data-client-key', key)
     s.async = true
     s.onload = () => { if ((window).snap) setSnapReady(true) }

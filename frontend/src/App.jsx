@@ -69,7 +69,7 @@ const App = () => {
         <Route path='/order-confirmation/:id' element={<OrderConfirmation/>} />
         <Route path='/profile' element={<ProfilePage/>} />
         <Route path='/place-order' element={<PlaceOrder/>} />
-        {/* <Route path='/payment-method' element={<PaymentMethod/>} /> */}
+        <Route path='/payment-method' element={<PaymentMethod/>} />
       </Routes>
       
       <Login 
