@@ -5,6 +5,7 @@ import { login as apiLogin, register as apiRegister } from '../../services/authS
 import googleIcon from '../../assets/google.png';
 import facebookIcon from '../../assets/facebook.png';
 import instagramIcon from '../../assets/instagram.png';
+import linkedinIcon from '../../assets/linkedin_icon.png';
 import './Login.css';
 
 const Login = ({ isOpen, onClose }) => {
@@ -306,7 +307,7 @@ const Login = ({ isOpen, onClose }) => {
                 className="social-login-btn linkedin" 
                 onClick={() => handleSocialLogin('LinkedIn')}
               >
-                <img src="/src/assets/linkedin_icon.png" alt="LinkedIn" />
+                <img src={linkedinIcon} alt="LinkedIn" />
               </button>
             </div>
           </div>
